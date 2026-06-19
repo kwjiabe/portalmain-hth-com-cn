@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kwjiabe.github.io/portalmain-hth-com-cn/sitemap.xml
