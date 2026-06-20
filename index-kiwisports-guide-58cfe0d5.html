@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>奇异果体育 – 稳定入口与场景说明</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; background: #f5f7fb; color: #1e2a3a; line-height: 1.6; }
+
+    /* 导航 */
+    .topbar {
+      background: #0b1a2a;
+      color: #d9e2ef;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 5%;
+      flex-wrap: wrap;
+    }
+    .topbar .brand {
+      font-weight: 600;
+      font-size: 1.25rem;
+      letter-spacing: 0.3px;
+      color: #f0c674;
+    }
+    .topbar nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .topbar nav a {
+      color: #cbd5e0;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.15s;
+    }
+    .topbar nav a:hover { color: #f0c674; }
+
+    /* 深色头图 */
+    .hero {
+      background: #0f202f;
+      background-image: radial-gradient(circle at 20% 30%, #1f3a4b, #0b1a2a);
+      color: #e6edf5;
+      text-align: center;
+      padding: 4.5rem 5% 4rem;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+    .hero h1 span { color: #f0c674; }
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 1rem;
+      font-size: 1.05rem;
+      opacity: 0.85;
+    }
+    .hero .meta-note {
+      display: inline-block;
+      background: rgba(240, 198, 116, 0.08);
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #b9cddc;
+      border: 1px solid rgba(240, 198, 116, 0.15);
+    }
+
+    /* 浅色正文区 */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 5% 4rem;
+    }
+
+    /* 核心介绍 */
+    .intro-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      margin-bottom: 2.8rem;
+      border: 1px solid #e9ecf2;
+    }
+    .intro-card h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #0f1f2e;
+    }
+    .intro-card p {
+      margin-bottom: 1rem;
+    }
+    .intro-card .link-sentence {
+      background: #f4f7fb;
+      padding: 0.7rem 1.2rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    .intro-card a, .section a {
+      color: #b8863c;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+    .intro-card a:hover, .section a:hover { border-bottom-color: #b8863c; }
+
+    /* 三个场景模块 (卡片) */
+    .scenes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+    }
+    .scene-item {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      border: 1px solid #e9ecf2;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .scene-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.04);
+    }
+    .scene-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #1e2a3a;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .scene-item p {
+      font-size: 0.95rem;
+      color: #2d3f53;
+      margin-bottom: 0.5rem;
+    }
+    .scene-item .badge {
+      display: inline-block;
+      background: #eef2f7;
+      border-radius: 30px;
+      padding: 0.1rem 0.7rem;
+      font-size: 0.8rem;
+      color: #3d576d;
+    }
+
+    /* 常见说明 (简洁) */
+    .faq-block {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.8rem 2.2rem;
+      margin-top: 0.8rem;
+      border: 1px solid #e9ecf2;
+    }
+    .faq-block h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      color: #0f1f2e;
+      border-left: 4px solid #f0c674;
+      padding-left: 0.8rem;
+    }
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1e2a3a;
+      margin-bottom: 0.2rem;
+    }
+    .faq-item p {
+      font-size: 0.95rem;
+      color: #384c5e;
+    }
+    .faq-footer {
+      border-top: 1px solid #eef2f7;
+      padding-top: 1rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #5c6f82;
+    }
+
+    /* 底部 */
+    .footer {
+      text-align: center;
+      padding: 1.8rem 5% 2.5rem;
+      color: #6e7f91;
+      font-size: 0.85rem;
+      border-top: 1px solid #e2e7ed;
+      background: #fafcff;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .topbar { flex-direction: column; gap: 0.6rem; align-items: flex-start; }
+      .hero h1 { font-size: 1.6rem; }
+      .scenes { grid-template-columns: 1fr; }
+      .intro-card { padding: 1.5rem; }
+      .faq-block { padding: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 3rem 5% 2.5rem; }
+      .container { padding: 1.5rem 5% 2.5rem; }
+      .scene-item { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<div class="topbar">
+  <div class="brand">✦ KIWISPORTS</div>
+  <nav>
+    <a href="#intro">介绍</a>
+    <a href="#scenes">场景</a>
+    <a href="#faq">说明</a>
+  </nav>
+</div>
+
+<!-- 深色头图 hero -->
+<section class="hero">
+  <h1>稳定入口 · <span>奇异果体育</span></h1>
+  <p>围绕运动数据与赛事内容，提供清晰、克制的访问路径。页面说明聚焦于常规使用场景，避免冗余信息干扰。</p>
+  <div class="meta-note">简洁 · 轻量导航式入口</div>
+</section>
+
+<!-- 浅色正文区 container -->
+<div class="container">
+
+  <!-- 核心介绍 -->
+  <div class="intro-card" id="intro">
+    <h2>关于页面与入口</h2>
+    <p>本页作为简明介绍页，从稳定访问的角度整理了几个基本信息点。无论是了解平台属性，还是确认日常访问方式，都可以从这里找到对应说明。</p>
+    <p>奇异果体育 所涉及的赛事内容与运动数据均来自公开合规渠道。以下三个场景模块分别对应了不同使用习惯下的常见需求。</p>
+    <p>
+      如果你需要直接访问服务，可以通过 
+      <a href="https://index-kiwisports.com">奇异果体育</a> 
+      完成后续操作。建议将链接添加至浏览器书签，以便保持稳定的访问体验。
+    </p>
+    <div class="link-sentence">访问入口：<a href="https://index-kiwisports.com">奇异果体育</a></div>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes" id="scenes">
+    <div class="scene-item">
+      <h3>📋 信息查阅</h3>
+      <p>通过平台查看赛事日程、运动项目基本规则以及相关数据汇总。页面结构以列表和摘要为主，便于快速浏览。</p>
+      <span class="badge">数据展示</span> <span class="badge">日程</span>
+    </div>
+    <div class="scene-item">
+      <h3>⚙️ 常规访问</h3>
+      <p>日常通过浏览器或应用内直达链接进入对应模块。网络环境稳定时，加载时间通常在预期范围内。</p>
+      <span class="badge">直达</span> <span class="badge">低延迟</span>
+    </div>
+    <div class="scene-item">
+      <h3>📎 辅助工具</h3>
+      <p>部分页面提供通知、收藏或历史记录功能，帮助用户追踪感兴趣的内容，减少重复查找时间。</p>
+      <span class="badge">收藏</span> <span class="badge">历史</span>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ摘要) -->
+  <div class="faq-block" id="faq">
+    <h3>常见说明</h3>
+    <div class="faq-item">
+      <strong>访问路径是否唯一？</strong>
+      <p>推荐使用 <a href="https://index-kiwisports.com">奇异果体育</a> 作为主要入口，如有变动会通过页面内提示更新。</p>
+    </div>
+    <div class="faq-item">
+      <strong>是否需要注册？</strong>
+      <p>部分内容可以直接浏览，涉及个性化设置或记录功能可能需要注册账户，以实际页面提示为准。</p>
+    </div>
+    <div class="faq-item">
+      <strong>页面兼容性如何？</strong>
+      <p>适配主流浏览器与移动设备，操作系统版本过旧可能出现布局异常，建议保持系统更新。</p>
+    </div>
+    <div class="faq-footer">
+      ⚡ 以上说明基于当前页面结构整理。如需更详细的指引，可直接访问 
+      <a href="https://index-kiwisports.com">奇异果体育</a> 查阅。
+    </div>
+  </div>
+
+</div>
+
+<!-- 页脚 -->
+<div class="footer">
+  <p>本页为轻量导航式介绍，内容仅供说明参考。© 2025 · 页面版本信息保持更新</p>
+</div>
+
+</body>
+</html>
