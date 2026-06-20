@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>奇异果体育 · 轻量导航指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(145deg, #fceae3 0%, #fedac5 55%, #fbc4ab 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #2e241f;
+      line-height: 1.6;
+      padding: 24px 20px 60px;
+    }
+
+    /* 整体内容容器 —— 模拟白色卡片叠加感 */
+    .page-wrapper {
+      max-width: 1040px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(4px);
+      padding: 14px 28px;
+      border-radius: 60px;
+      box-shadow: 0 6px 18px rgba(180, 100, 60, 0.08);
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo-text {
+      font-weight: 650;
+      font-size: 1.35rem;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #c45c36, #9e3f22);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4f3b32;
+      font-weight: 500;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: border-bottom 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #c45c36;
+      color: #2a1c16;
+    }
+
+    /* 主卡片区域 */
+    .card {
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(150, 80, 40, 0.15);
+      padding: 36px 32px 40px;
+      margin-bottom: 28px;
+      transition: box-shadow 0.2s;
+    }
+
+    .card-hero {
+      background: white;
+      border-radius: 32px;
+      padding: 44px 36px 48px;
+      margin-bottom: 28px;
+      box-shadow: 0 20px 40px -12px rgba(130, 70, 30, 0.12);
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      color: #2f1e17;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: #6f4e3f;
+      max-width: 640px;
+    }
+
+    .hero-sub a {
+      color: #b64f2c;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px dotted #b64f2c;
+    }
+
+    .hero-sub a:hover {
+      border-bottom-style: solid;
+      color: #8a371b;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 620;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span {
+      background: #fad4c0;
+      border-radius: 40px;
+      padding: 0 10px;
+      font-size: 0.8rem;
+      color: #6e3a25;
+      letter-spacing: 0.3px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 12px 0 6px;
+    }
+
+    .scene-item {
+      background: #fcf5f2;
+      border-radius: 28px;
+      padding: 22px 18px 20px;
+      transition: transform 0.1s ease, background 0.2s;
+      border: 1px solid #f0ded5;
+    }
+
+    .scene-item:hover {
+      background: #f8ede7;
+      transform: translateY(-3px);
+    }
+
+    .scene-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #3a251d;
+    }
+
+    .scene-item p {
+      font-size: 0.95rem;
+      color: #5a4136;
+    }
+
+    .faq-mini {
+      list-style: none;
+      margin: 6px 0 0;
+    }
+
+    .faq-mini li {
+      padding: 8px 0 8px 24px;
+      position: relative;
+      border-bottom: 1px solid #f4e4db;
+      font-size: 0.98rem;
+    }
+
+    .faq-mini li:last-child {
+      border-bottom: none;
+    }
+
+    .faq-mini li::before {
+      content: "▹";
+      position: absolute;
+      left: 2px;
+      color: #b45433;
+      font-weight: bold;
+    }
+
+    .btn-soft {
+      display: inline-block;
+      background: #f5e3da;
+      color: #3d271f;
+      padding: 10px 28px;
+      border-radius: 60px;
+      font-weight: 550;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+      border: 1px solid #e6cdbf;
+      margin-top: 16px;
+    }
+
+    .btn-soft:hover {
+      background: #edd6ca;
+      box-shadow: 0 4px 10px rgba(160, 85, 50, 0.08);
+    }
+
+    .reminder-box {
+      background: #fff9f5;
+      border-left: 4px solid #c45c36;
+      padding: 18px 22px;
+      border-radius: 24px;
+      margin: 10px 0 0;
+      font-size: 0.95rem;
+      color: #3c2a22;
+    }
+
+    .reminder-box strong {
+      color: #9e4127;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 18px;
+      color: #594337;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    /* 响应式 */
+    @media (max-width: 760px) {
+      body {
+        padding: 16px 14px 40px;
+      }
+      .top-nav {
+        padding: 12px 18px;
+        border-radius: 40px;
+      }
+      .nav-links {
+        gap: 14px;
+        font-size: 0.88rem;
+        flex-wrap: wrap;
+      }
+      .card-hero {
+        padding: 30px 20px 34px;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+      .hero-sub {
+        font-size: 1rem;
+      }
+      .card {
+        padding: 24px 18px 28px;
+      }
+      .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .nav-links {
+        justify-content: center;
+      }
+      .section-title {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+      <div class="logo-text">奇异果体育 · 简明指引</div>
+      <div class="nav-links">
+        <a href="#guide">概述</a>
+        <a href="#scenes">场景</a>
+        <a href="#faq">说明</a>
+      </div>
+    </nav>
+
+    <!-- hero 核心介绍 -->
+    <div class="card-hero" id="guide">
+      <h1>奇异果体育 · 访问与使用简明指南</h1>
+      <div class="hero-sub">
+        轻量导航站点，聚焦如何顺畅了解平台信息。推荐直接访问 
+        <a href="https://home-qygsports.com">奇异果体育</a> 
+        获取完整介绍。以下内容基于常见使用场景整理，便于快速上手。
+      </div>
+      <div style="margin-top: 22px; font-size: 0.98rem; color: #4d352b; border-top: 1px solid #f2dfd5; padding-top: 20px;">
+        本页汇总了三个典型场景、若干实用提醒及常见问题摘要。所有信息均以官方页面为准，请合理参考。
+      </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="card" id="scenes">
+      <div class="section-title">
+        📍 三个典型使用场景
+        <span>参考</span>
+      </div>
+      <div class="grid-3">
+        <div class="scene-item">
+          <h3>🔹 信息查阅</h3>
+          <p>通过浏览器打开平台主页，了解项目介绍、内容分类及基础指引。适合初次接触时整体浏览。</p>
+        </div>
+        <div class="scene-item">
+          <h3>🔹 功能探索</h3>
+          <p>在熟悉布局后，逐步查看不同板块。建议结合页面导航或搜索，定位自己关心的模块。</p>
+        </div>
+        <div class="scene-item">
+          <h3>🔹 常规访问</h3>
+          <p>日常查看更新或内容变动。可收藏 <a href="https://home-qygsports.com" style="color: #b64f2c; text-decoration: underline; font-weight: 500;">奇异果体育</a> 以便快速返回。</p>
+        </div>
+      </div>
+      <div style="margin-top: 12px; font-size: 0.9rem; color: #6b4d3f; background: #fcf3ed; padding: 8px 16px; border-radius: 40px; display: inline-block;">
+        ⚡ 每个场景均建议保持网络通畅，并核对链接准确性。
+      </div>
+    </div>
+
+    <!-- 常见说明 + 提醒 = 混合卡片 -->
+    <div class="card" id="faq">
+      <div class="section-title">
+        📌 访问提醒 & 常见说明摘要
+        <span>FAQ</span>
+      </div>
+
+      <ul class="faq-mini">
+        <li><strong>访问地址：</strong>建议直接使用 <a href="https://home-qygsports.com" style="color: #b64f2c; text-decoration: underline;">奇异果体育</a> 主页，避免通过未经验证的第三方链接进入。</li>
+        <li><strong>页面兼容：</strong>主流浏览器均可正常显示（Chrome / Edge / Safari / Firefox）。如遇布局异常，尝试清除缓存或更新浏览器。</li>
+        <li><strong>内容更新：</strong>平台内容由官方维护，本导航页仅做客观介绍。具体功能变动请以实际页面为准。</li>
+        <li><strong>安全提醒：</strong>请留意网址拼写，确保访问的是 home-qygsports.com 域名。不要向任何非官方渠道泄露个人信息。</li>
+        <li><strong>使用建议：</strong>初次访问可先浏览首页导航及分类标题；需要帮助时可查阅页面内置的帮助/常见问题区域。</li>
+      </ul>
+
+      <div class="reminder-box">
+        <strong>⏺ 简明提醒：</strong> 奇异果体育官方主页是获取信息最直接的渠道。本介绍页仅提供导航式辅助，所有操作与决策请基于实际页面内容。如遇到访问异常，可稍后重试或检查网络设置。
+      </div>
+
+      <!-- 柔和按钮（链接，但不是“进入”类文本） -->
+      <a href="https://home-qygsports.com" class="btn-soft">奇异果体育</a>
+    </div>
+
+    <div class="footer-note">
+      · 内容仅供参考 · 请以官方页面为准 ·
+    </div>
+  </div>
+</body>
+</html>
